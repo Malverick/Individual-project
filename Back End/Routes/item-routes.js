@@ -44,10 +44,10 @@ router.get('/getThingRace/:id?', async (req, res) => {
 router.get('/getThingChar/:id?', async (req, res) => {
     try {
         if (req.params.id == undefined) {
-            res.send(await models.Character.findAll())
+            res.send(await models.charName.findAll())
         }
         else {
-            var resp = await models.Character.findAll({
+            var resp = await models.charName.findAll({
                 where: {
                     character_id: req.params.id
                 }
@@ -61,7 +61,10 @@ router.get('/getThingChar/:id?', async (req, res) => {
 });
 router.post('/addThingChar/:character/:race/:class', async (req, res) => {
     try {
-        await models.Character.create({ character: req.params.character, race: req.params.race, class: req.params.class});
+        // console.log("-----------")
+        // console.log(req.params.character)
+        // console.log("-----------")
+        await models.Character.create({ charName: req.params.character, raceRaceId: req.params.race, classClassId: req.params.class});
         res.send("probably worked")
     }
     catch{
@@ -79,6 +82,7 @@ router.delete('/deleteThingChar/:character', async (req, res) => {
 });
 router.put('/updateThingChar/:character', (req, res) => {
     try {
+        //character: req.body.character << body tag may be wrong
         models.Character.update({ character: req.body.character }, { where: { character: req.params.character } });
         res.send('probably worked')
     }

@@ -13,15 +13,7 @@ const Class = sequelize.import(__dirname + '/class-model');
 const Race = sequelize.import(__dirname + '/race-model');
 const Character = sequelize.import(__dirname + '/character-model');
 
-//Many to many tables. 
-// Class.associate = (Race) => {
-//     Class.belongsToMany(Race.Class, {
-//         through: 'ClassRace',
-//         foreignKey: 't2_id'
-//     });
-// };
-//Race.belongsToMany(Class, {through: 'ClasssRaces', timestamps: false});
-
+//two sets of one to many
 Character.belongsTo(Class);
 Class.hasMany(Character);
 Character.belongsTo(Race);

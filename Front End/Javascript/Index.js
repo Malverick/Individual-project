@@ -17,3 +17,4 @@ function fighter() {
 function cleric() {
     document.getElementById("dropdown2").value="Cleric";
  }
+

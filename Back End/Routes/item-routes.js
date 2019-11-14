@@ -21,34 +21,6 @@ router.get('/getThingClass/:id?', async (req, res) => {
         res.status(500).send('Failed to \'get\'');
     }
 });
-router.post('/addThingClass', async (req, res) => {
-    try {
-        await models.Class.create({ class: req.body.name});
-        res.send("probably worked")
-    }
-    catch{
-        res.status(500).send('Failed to \'post\'');
-    }
-});
-router.delete('/deleteThingClass/:name', async (req, res) => {
-    try {
-        await models.Class.destroy({ where: { class: req.params.name } });
-        res.send('probably worked')
-    }
-    catch{
-        res.status(500).send('Failed to \'delete\'');
-    }
-});
-router.put('/updateThingClass/:name', (req, res) => {
-    try {
-        models.Class.update({ class: req.body.name }, { where: { class: req.params.name } });
-        res.send('probably worked')
-    }
-    catch{
-        res.status(500).send('Failed to \'update\''); T
-    }
-});
-
 //Race                                                          Race
 router.get('/getThingRace/:id?', async (req, res) => {
     try {
@@ -68,34 +40,6 @@ router.get('/getThingRace/:id?', async (req, res) => {
         res.status(500).send('Failed to \'get\'');
     }
 });
-router.post('/addThingRace', async (req, res) => {
-    try {
-        await models.Race.create({ race: req.body.name});
-        res.send("probably worked")
-    }
-    catch{
-        res.status(500).send('Failed to \'post\'');
-    }
-});
-router.delete('/deleteThingRace/:name', async (req, res) => {
-    try {
-        await models.Race.destroy({ where: { race: req.params.name } });
-        res.send('probably worked')
-    }
-    catch{
-        res.status(500).send('Failed to \'delete\'');
-    }
-});
-router.put('/updateThingRace/:name', (req, res) => {
-    try {
-        models.Race.update({ race: req.body.name }, { where: { race: req.params.name } });
-        res.send('probably worked')
-    }
-    catch{
-        res.status(500).send('Failed to \'update\'');
-    }
-});
-
 //Character                                                     Character
 router.get('/getThingChar/:id?', async (req, res) => {
     try {
@@ -115,27 +59,27 @@ router.get('/getThingChar/:id?', async (req, res) => {
         res.status(500).send('Failed to \'get\'');
     }
 });
-router.post('/addThingChar', async (req, res) => {
+router.post('/addThingChar/:character/:race/:class', async (req, res) => {
     try {
-        await models.Character.create({ character: req.body.name});
+        await models.Character.create({ character: req.params.character, race: req.params.race, class: req.params.class});
         res.send("probably worked")
     }
     catch{
         res.status(500).send('Failed to \'post\'');
     }
 });
-router.delete('/deleteThingChar/:name', async (req, res) => {
+router.delete('/deleteThingChar/:character', async (req, res) => {
     try {
-        await models.Character.destroy({ where: { character: req.params.name } });
+        await models.Character.destroy({ where: { character: req.params.character } });
         res.send('probably worked')
     }
     catch{
         res.status(500).send('Failed to \'delete\'');
     }
 });
-router.put('/updateThingChar/:name', (req, res) => {
+router.put('/updateThingChar/:character', (req, res) => {
     try {
-        models.Character.update({ character: req.body.name }, { where: { character: req.params.name } });
+        models.Character.update({ character: req.body.character }, { where: { character: req.params.character } });
         res.send('probably worked')
     }
     catch{

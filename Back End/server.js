@@ -13,7 +13,7 @@ app.get('/', (req, res) => {
     res.send('Hello World');
 });
 
-app.use('/food', router);
+app.use('/dndchars', router);
 
 app.listen(8080); 
 

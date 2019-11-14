@@ -22,10 +22,10 @@ const Character = sequelize.import(__dirname + '/character-model');
 // };
 //Race.belongsToMany(Class, {through: 'ClasssRaces', timestamps: false});
 
-Character.hasOne(Class);
-Character.hasOne(Race);
-Class.belongsToMany(Character);
-Race.belongsToMany(Character);
+Character.belongsTo(Class);
+Class.hasMany(Character);
+Character.belongsTo(Race);
+Race.hasMany(Character);
 
 
 sequelize.sync({force: true}).then(() => {

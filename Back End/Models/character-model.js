@@ -9,5 +9,6 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             notNull: true
         }
+        //Add race and class foreign Keys
     }, { timestamps: false });
 }

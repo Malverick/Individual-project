@@ -31,8 +31,9 @@ async function getClass() {
     console.log(JSON.stringify(classJson));
 }
 async function getCharacter() {
-    const characterResponse = await fetch('http://localhost:8080/dndchars/getThingChar');
+    const characterResponse = await fetch('http://localhost:8080/dndchars/getThingChar/');
     const characterJson = await characterResponse.json();
+    console.log(characterJson);
     console.log(JSON.stringify(characterJson));
 }
 async function postCharacter() {

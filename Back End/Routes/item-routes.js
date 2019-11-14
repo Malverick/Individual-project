@@ -44,10 +44,10 @@ router.get('/getThingRace/:id?', async (req, res) => {
 router.get('/getThingChar/:id?', async (req, res) => {
     try {
         if (req.params.id == undefined) {
-            res.send(await models.charName.findAll())
+            res.send(await models.Character.findAll())
         }
         else {
-            var resp = await models.charName.findAll({
+            var resp = await models.Character.findAll({
                 where: {
                     character_id: req.params.id
                 }

@@ -154,3 +154,20 @@ button {
   min-width: 150px;
   min-height: 150px;
 }
+#delText{
+  top: 170px;
+  position: absolute;
+  left: 775px;
+  width:206px;
+  height:48px;
+  text-align: center;
+}
+#delCharacter {
+  position: absolute;
+  top:255px;
+  left:775px;
+  width:206px;
+  height:48px;
+  background-color: #404040;
+  font-size: 90%;
+}

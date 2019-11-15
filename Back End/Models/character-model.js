@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         charName: {
             type: DataTypes.STRING,
-            notNull: true
+            allowNull: false,
+            unique: true
         }
         //Add race and class foreign Keys
     }, { timestamps: false });

@@ -47,31 +47,19 @@ router.get('/getThingChar/:id?', async (req, res) => {
         if (req.params.id == undefined) {
 
             res.send(await models.Character.findAll({
-                include: [
-                    {
-                        model: models.Class
-                    },
-                    {
-                        model: models.Race
-                    }]
-            }))
-        }
+                include: [  { model: models.Class },
+                            { model: models.Race }]
+            }))}
         else {
             var resp = await models.Character.findAll({
                 where: {
                     character_id: req.params.id
                 },
-                include: [
-                    {
-                        model: models.Class
-                    },
-                    {
-                        model: models.Race
-                    }]
+                include: [  { model: models.Class},
+                            { model: models.Race}]
             })
             res.send(resp)
-        }
-    }
+        }}
     catch {
         res.status(500).send('Failed to \'get\'');
     }
@@ -88,9 +76,9 @@ router.post('/addThingChar/:character/:race/:class', async (req, res) => {
         res.status(500).send('Failed to \'post\'');
     }
 });
-router.delete('/deleteThingChar/:character', async (req, res) => {
+router.delete('/deleteThingChar/:charName', async (req, res) => {
     try {
-        await models.Character.destroy({ where: { character: req.params.character } });
+        await models.Character.destroy({ where: { charName: req.params.charName } });
         res.send('probably worked')
     }
     catch{

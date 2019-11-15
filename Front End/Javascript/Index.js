@@ -22,22 +22,22 @@ function fighter() {
 function cleric() {
     document.getElementById("dropdown2").value = "Cleric";
 }
-async function getRaces() {
-    const raceResponse = await fetch('http://localhost:8080/dndchars/getThingRace');
-    const raceJson = await raceResponse.json();
-    console.log(JSON.stringify(raceJson));
-}
-async function getClass() {
-    const classResponse = await fetch('http://localhost:8080/dndchars/getThingClass');
-    const classJson = await classResponse.json();
-    console.log(JSON.stringify(classJson));
-}
-async function getCharacter() {
-    const characterResponse = await fetch('http://localhost:8080/dndchars/getThingChar/');
-    const characterJson = await characterResponse.json();
-    console.log(characterJson);
-    console.log(JSON.stringify(characterJson));
-}
+// async function getRaces() {
+//     const raceResponse = await fetch('http://localhost:8080/dndchars/getThingRace');
+//     const raceJson = await raceResponse.json();
+//     console.log(JSON.stringify(raceJson));
+// }
+// async function getClass() {
+//     const classResponse = await fetch('http://localhost:8080/dndchars/getThingClass');
+//     const classJson = await classResponse.json();
+//     console.log(JSON.stringify(classJson));
+// }
+// async function getCharacter() {
+//     const characterResponse = await fetch('http://localhost:8080/dndchars/getThingChar/');
+//     const characterJson = await characterResponse.json();
+//     console.log(characterJson);
+//     console.log(JSON.stringify(characterJson));
+// }
 async function postCharacter() {
     const charName = document.getElementById("name");
     let charRace = document.getElementById("dropdown1");
@@ -66,23 +66,24 @@ async function postCharacter() {
     }
     console.log(charName.value + charRace.value + charClass.value);
     console.log('http://localhost:8080/dndchars/addThingChar/' + charName.value + "/" + charRace.value + "/" + charClass.value);
-    const characterResponse = await fetch('http://localhost:8080/dndchars/addThingChar/' + charName.value + "/" + charRace.value + "/" + charClass.value, { method: 'POST'});
+    const characterResponse = await fetch('http://localhost:8080/dndchars/addThingChar/' + charName.value + "/" + charRace.value + "/" + charClass.value, { method: 'POST' });
 }
-    
-async function deleteCharacter() {
-    charName = document.getElementById("name").value;
-    const characterResponse = await fetch('http://localhost:8080/dndchars/deleteThingChar/' + charName, { method: 'DELETE'});
-}
-async function updateCharacter() {
-    charName = document.getElementById("name").value;
-    const characterResponse = await fetch('http://localhost:8080/dndchars/deleteThingChar/' + charName, {method: 'PUT'});
-}   
-async function showChars () {
+
+// async function deleteCharacter() {
+//     charName = document.getElementById("name").value;
+//     const characterResponse = await fetch('http://localhost:8080/dndchars/deleteThingChar/' + charName, { method: 'DELETE' });
+// }
+// async function updateCharacter() {
+//     charName = document.getElementById("name").value;
+//     const characterResponse = await fetch('http://localhost:8080/dndchars/deleteThingChar/' + charName, { method: 'PUT' });
+// }
+async function showChars() {
+    document.getElementById("listholder").innerHTML = "";
     const characterResponse = await fetch('http://localhost:8080/dndchars/getThingChar/');
     const characterJson = await characterResponse.json();
     console.log(characterJson);
 
-    for(let d of characterJson){
+    for (let d of characterJson) {
         let st = document.createElement("div");
         st.className = "Char_List";
         let h = document.createElement("h4");
@@ -97,3 +98,9 @@ async function showChars () {
         doc.appendChild(st);
     }
 }
+async function delChar() {
+    const charName = document.getElementById("name").value;
+    console.log('http://localhost:8080/dndchars/deleteThingChar/' + charName)
+    const characterResponse = await fetch('http://localhost:8080/dndchars/deleteThingChar/' + charName, { method: 'DELETE' });
+}
+

@@ -7,7 +7,8 @@ module.exports = (sequelize, DataTypes) => {
         },
         class: {
             type: DataTypes.STRING,
-            notNull: true
+            notNull: true,
+            unique: true
         }
     }, { timestamps: false });
 }

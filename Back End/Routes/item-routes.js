@@ -86,14 +86,14 @@ router.delete('/deleteThingChar/:charName', async (req, res) => {
     }
 });
 router.put('/updateThingChar/:characterN/:characterO', async (req, res) => {
-    // try {
-        //character: req.body.character << body tag may be wrong
-        await models.Character.update({ charName: req.params.characterO }, { where: { charName: req.params.characterN } });
-        res.send('probably worked')
-    // }
-    // catch{
-    //    // res.status(500).send('Failed to \'update\'');
-    // }
+    try {
+        //character: req.body.character << body tag may be wrong]
+        await models.Character.update({ charName: req.params.characterN }, { where: { charName: req.params.characterO } });
+        res.send('It worked probably')
+    }
+    catch(err){
+       res.status(500).send(err);
+    }
 });
 
 module.exports = router;

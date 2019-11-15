@@ -75,3 +75,8 @@ async function updateCharacter() {
     charName = document.getElementById("name").value;
     const characterResponse = await fetch('http://localhost:8080/dndchars/deleteThingChar/' + charName, {method: 'PUT'});
 }   
+function showChars () {
+    getCharacter();
+    characterJson
+
+}

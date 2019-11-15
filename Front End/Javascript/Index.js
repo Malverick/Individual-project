@@ -79,7 +79,12 @@ async function postCharacter() {
 //     const characterResponse = await fetch('http://localhost:8080/dndchars/deleteThingChar/' + charName, { method: 'PUT' });
 // }
 async function showChars() {
-    document.getElementById("listholder").innerHTML = "";
+    if (document.getElementById("listholder").innerHTML == "") {
+        console.log(" moving on ");
+    }
+    else{
+        document.getElementById("listholder").innerHTML = "";
+    }
     const characterResponse = await fetch('http://localhost:8080/dndchars/getThingChar/');
     const characterJson = await characterResponse.json();
     console.log(characterJson);

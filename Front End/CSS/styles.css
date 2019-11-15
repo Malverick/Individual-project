@@ -171,3 +171,43 @@ button {
   background-color: #404040;
   font-size: 90%;
 }
+#Update{
+  top: 1px;
+  position: absolute;
+  right: 100px;
+  width:50px;
+  height:48px;
+  text-align: center;
+  font-size: 50%;
+  background-color: #404040
+}
+#updateChar {
+  position: absolute;
+  top:310px;
+  left:775px;
+  width:206px;
+  height:48px;
+  background-color: #404040;
+  font-size: 90%;
+  text-align: center;
+}
+#charOld {
+  position: absolute;
+  top:255px;
+  left:775px;
+  width:206px;
+  height:48px;
+  background-color: #404040;
+  font-size: 90%;
+  text-align: center;
+}
+#charNew {
+  position: absolute;
+  top:205px;
+  left:775px;
+  width:206px;
+  height:48px;
+  background-color: #404040;
+  font-size: 90%;
+  text-align: center;
+}

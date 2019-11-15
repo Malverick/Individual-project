@@ -1,4 +1,5 @@
 'use strict'
+window.onload = showChars();
 
 let doc = document.getElementById("listholder");
 
@@ -104,3 +105,9 @@ async function delChar() {
     const characterResponse = await fetch('http://localhost:8080/dndchars/deleteThingChar/' + charName, { method: 'DELETE' });
 }
 
+async function updateChar() {
+    const charNew = document.getElementById("charNew").value;
+    const charOld = document.getElementById("charOld").value;
+    console.log('http://localhost:8080/dndchars/updateThingChar/' + charNew + "/" + charOld)
+    const characterResponse = await fetch('http://localhost:8080/dndchars/updateThingChar/' + charNew + "/" + charOld, { method: 'PUT' });
+}

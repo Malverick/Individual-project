@@ -42,15 +42,32 @@ router.get('/getThingRace/:id?', async (req, res) => {
 });
 //Character                                                     Character
 router.get('/getThingChar/:id?', async (req, res) => {
+
     try {
         if (req.params.id == undefined) {
-            res.send(await models.Character.findAll())
+
+            res.send(await models.Character.findAll({
+                include: [
+                    {
+                        model: models.Class
+                    },
+                    {
+                        model: models.Race
+                    }]
+            }))
         }
         else {
             var resp = await models.Character.findAll({
                 where: {
                     character_id: req.params.id
-                }
+                },
+                include: [
+                    {
+                        model: models.Class
+                    },
+                    {
+                        model: models.Race
+                    }]
             })
             res.send(resp)
         }
@@ -64,7 +81,7 @@ router.post('/addThingChar/:character/:race/:class', async (req, res) => {
         // console.log("-----------")
         // console.log(req.params.character)
         // console.log("-----------")
-        await models.Character.create({ charName: req.params.character, raceRaceId: req.params.race, classClassId: req.params.class});
+        await models.Character.create({ charName: req.params.character, raceRaceId: req.params.race, classClassId: req.params.class });
         res.send("probably worked")
     }
     catch{

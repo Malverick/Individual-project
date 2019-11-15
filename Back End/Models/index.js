@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
     {
         host: 'localhost',
         dialect: 'mysql'
-});
+    });
 
 const Class = sequelize.import(__dirname + '/class-model');
 const Race = sequelize.import(__dirname + '/race-model');
@@ -20,16 +20,18 @@ Character.belongsTo(Race);
 Race.hasMany(Character);
 
 
-sequelize.sync({force: true}).then(() => {
-    Class.create({class: 'Wizzard'}),
-    Class.create({class: 'Fighter'})
-    Class.create({class: 'Cleric'})
-});
 
-sequelize.sync({force: true}).then(() => {
-    Race.create({race: 'Human'}),
-    Race.create({race: 'High Elf'}),
-    Race.create({race: 'Dwarf',})
+sequelize.sync({ force: true }).then(async() => {
+    await Class.create({ class: 'Wizzard' });
+    await Class.create({ class: 'Fighter' });
+    await Class.create({ class: 'Cleric' });
+    await Race.create({ race: 'Human' });
+    await Race.create({ race: 'High Elf' });
+    await Race.create({ race: 'Dwarf' });
+    await Character.create({ charName: "Ed", raceRaceId: "2", classClassId: "1" });
+    await Character.create({ charName: "Edd", raceRaceId: "1", classClassId: "3" });
+    await Character.create({ charName: "Eddy", raceRaceId: "3", classClassId: "2" });
+    await Character.create({ charName: "Edward", raceRaceId: "1", classClassId: "1" });
 });
 
 module.exports = {

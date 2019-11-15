@@ -1,41 +1,48 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>
+
+<head>
+    <title>
         Homepage
-        </title>
-        <link rel="stylesheet" href="./Bootstrap\css\bootstrap.min.css">
-        <link rel="stylesheet" href="./CSS\styles.css">
-    </head>
+    </title>
+    <link rel="stylesheet" href="./Bootstrap\css\bootstrap.min.css">
+    <link rel="stylesheet" href="./CSS\styles.css">
+</head>
 
 <body>
-<header> Dungeons and Dragons Character database <img id="i01" src="./CSS\DnD Logo.jpg" height="50px"></header>
-<div><input onfocus="this.value=''" type="text" value="Character Name" id="name"></div>
-<div class="dropdown1">
-<!--    <span id="dropdown1">Mouse over me</span>   -->
-    <input id="dropdown1" type="text" value="Race">
-    <div class="dropdown-content1">
-        <button onclick="human()">Human</button>
-        <button onclick="high_elf()">High Elf</button>
-        <button onclick="dwarf()">Dwarf</button>
+    <header> Dungeons and Dragons Character database <img id="i01" src="./CSS\DnD Logo.jpg" height="50px"> <button id="Delete" onclick="window.location.href=' '">Delete</button></header>
+    <div><input onfocus="this.value=''" type="text" value="Character Name" id="name"></div>
+    <div class="dropdown1">
+        <!--    <span id="dropdown1">Mouse over me</span>   -->
+        <input id="dropdown1" type="text" value="Race">
+        <div class="dropdown-content1">
+            <button onclick="human()">Human</button>
+            <button onclick="high_elf()">High Elf</button>
+            <button onclick="dwarf()">Dwarf</button>
+        </div>
     </div>
-</div>
-<div class="dropdown2">
-    <input id="dropdown2" type="text" value="Class">
-    <div class="dropdown-content2">
-        <button onclick="wizzard()">Wizzard</button>
-        <button onclick="fighter()">Fighter</button>
-        <button onclick="cleric()">Cleric</button>
+    <div class="dropdown2">
+        <input id="dropdown2" type="text" value="Class">
+        <div class="dropdown-content2">
+            <button onclick="wizzard()">Wizzard</button>
+            <button onclick="fighter()">Fighter</button>
+            <button onclick="cleric()">Cleric</button>
+        </div>
     </div>
-  </div>
-<button id="create" onclick="postCharacter()">Create</button>
-<button id="goToCharPage">Show Character List</button>
-<br><br><br><br>
+    <button id="create" onclick="postCharacter()">Create</button>
+    <button id="goToCharPage" onclick="window.location.href='/\/C:/Users/Admin/Documents/james/Project/Front%20End/Characterpage.html'">Show Character List</button>
+    <br><br><br><br>
 
 </body>
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 <script src="./Javascript/Index.js"></script>
-</html>
 
+</html>

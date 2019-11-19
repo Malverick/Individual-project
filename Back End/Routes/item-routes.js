@@ -24,17 +24,18 @@ router.get('/getThingClass/:id?', async (req, res) => {
 //Race                                                          Race
 router.get('/getThingRace/:id?', async (req, res) => {
     try {
+        let resp;
         if (req.params.id == undefined) {
-            res.send(await models.Race.findAll())
+            resp = await models.Race.findAll()
         }
         else {
-            var resp = await models.Race.findAll({
+            resp = await models.Race.findAll({
                 where: {
                     race_id: req.params.id
                 }
             })
-            res.send(resp)
         }
+        res.send(resp)
     }
     catch {
         res.status(500).send('Failed to \'get\'');
@@ -66,9 +67,6 @@ router.get('/getThingChar/:id?', async (req, res) => {
 });
 router.post('/addThingChar/:character/:race/:class', async (req, res) => {
     try {
-        // console.log("-----------")
-        // console.log(req.params.character)
-        // console.log("-----------")
         await models.Character.create({ charName: req.params.character, raceRaceId: req.params.race, classClassId: req.params.class });
         res.send("probably worked")
     }

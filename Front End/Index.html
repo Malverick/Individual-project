@@ -10,11 +10,16 @@
 </head>
 
 <body>
-    <header>
-        Dungeons and Dragons Character database <img id="i01" src="./CSS\DnD Logo.jpg" height="50px"> <button id="Delete" onclick="window.location.href='./Delete.html'">Delete</button>
-        <button id="Update" onclick="window.location.href='./Update.html'">update</button>
+    <div id="wrapper"
+    <header id="header">
+        Dungeons and Dragons Character database 
+        <img id="i01" src="./CSS\DnD Logo.jpg" height="50px"> 
+        <button id="Delete" onclick="location.href='delete.html'">Delete</button>
+        <button id="Update" onclick="location.href='update.html'">update</button>
     </header>
-    <div><input onfocus="this.value=''" type="text" value="Character Name" id="name"></div>
+    <div>
+        <input onfocus="this.value=''" type="text" value="Character Name" id="name">
+    </div>
     <div class="dropdown1">
         <!--    <span id="dropdown1">Mouse over me</span>   -->
         <input id="dropdown1" type="text" value="Race">
@@ -33,7 +38,7 @@
         </div>
     </div>
     <button id="create" onclick="postCharacter()">Create</button>
-    <button id="goToCharPage" onclick="window.location.href='/\/C:/Users/Admin/Documents/james/Project/Front%20End/Characterpage.html'">Show Character List</button>
+    <button id="goToCharPage" onclick="location.href='characterpage.html'">Show Character List</button>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
